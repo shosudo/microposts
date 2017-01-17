@@ -1,14 +1,19 @@
 <!DOCTYPE html>
+<%# microposts全体で使用するHTMLのレイアウト %>
 <html>
 <head>
   <title>Microposts</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+    <%= render 'layouts/header' %>
+    <%# headerパーシャルを読み込む %>
+    
+    <div class="container">
+      <%= yield %>
+      <%# Controllerが処理した内容を埋め込む %>
+    </div>
 </body>
 </html>
