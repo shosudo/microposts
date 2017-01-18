@@ -12,6 +12,10 @@
     <%# headerパーシャルを読み込む %>
     
     <div class="container">
+      <% flash.each do |message_type, message| %>
+      <%# message_type is hash key and message is a value %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
       <%= yield %>
       <%# Controllerが処理した内容を埋め込む %>
     </div>
