@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "Welcome to the Sample application!"
-      #Key is :success and value is Welcome to---
+      #Key is :success and value is Welcome to--
       redirect_to @user
       #redirect_to user_path(@user)
     else

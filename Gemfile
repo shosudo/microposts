@@ -50,5 +50,7 @@ group :development do
   
   # Change messages to japanese
   gem 'rails-i18n'
+  
+  gem 'pry-byebug', group: :development
 end
 
