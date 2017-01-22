@@ -1,0 +1,6 @@
+<%= form_for(current_user.following_relationships.build, remote: true) do |f| %>
+<%# remote: trueによってajaxでrequestが行われ、jsでページの一部が切り替わる %>
+  <div><%= hidden_field_tag :followed_id, @user.id %></div>
+  <%# hidden_field_tagによって、フォローするユーザーの値をidとしてもつタグが作成される %>
+  <%= f.submit "Follow", class: "btn btn-primary" %>
+<% end %>

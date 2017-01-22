@@ -23,4 +23,29 @@ class User < ActiveRecord::Base
     
     has_many :microposts
     #投稿に紐付いている。複数の投稿が1ユーザーに紐づく。
+    has_many :following_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+    #user.following_relationshipsでuserがフォローしているrelationshipの集まりを取得. follower_idとfollowed_id(user_id)の関連.
+    has_many :following_users, through: :following_relationships, source: :followed
+    #following_relationships経由で、フォローしているユーザーの集まりを取得。
+    has_many :follower_relationships, class_name:  "Relationship", foreign_key: "followed_id", dependent: :destroy
+    #userがフォローされているrelationshipの集まりを取得
+    has_many :follower_users, through: :follower_relationships, source: :follower
+    #userがフォローされているユーザーの集まりを取得
+    
+    # 他のユーザーをフォローする
+    def follow(other_user)
+        following_relationships.find_or_create_by(followed_id: other_user.id)
+        #find_or_create_by methodは因数のパラメータと一致するものを一見取得し、存在する場合はそのオブジェクトを返し、ない場合は作成し保存する
+    end
+    
+    # フォローしているユーザーをアンフォローする
+    def unfollow(other_user)
+        following_relationship = following_relationships.find_by(followed_id: other_user.id)
+        following_relationship.destroy if following_relationship
+    end
+    
+    # あるユーザーをフォローしているかどうか？
+    def following?(other_user)
+        following_users.include?(other_user)
+    end
 end

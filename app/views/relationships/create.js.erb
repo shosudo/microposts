@@ -1,0 +1,4 @@
+$("#follow_form").html("<%= escape_javascript(render('users/unfollow')) %>");
+
+<%#escape_javascriptで、文字列がJavaScriptのプログラムの文字列として問題ないように変換（エスケープ）処理を行っています。
+また、$("#follow_form").html()の部分で、<div id="follow_form">の中のHTMLをusers/unfollow.html.erbの内容で置き換えています。%>

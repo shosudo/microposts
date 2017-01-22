@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   #url is /users. action is depends on HTTP method.
   #Please use command 'rake routes' if you want to check route list. 
   resources :microposts
-
+  resources :relationships, only: [:create, :destroy]
 end

@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def show
     user_find
-    check_login
     @microposts = @user.microposts.order(created_at: :desc)
     #ユーザーに紐付いたmicropostを作成日時が新しいモノから取得
   end

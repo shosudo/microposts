@@ -30,5 +30,8 @@ module Microposts
       g.helper false
       g.test_framework false
     end
+    
+    #ajaxを利用する際に、データを安全にやり取りするためにトークンを付与
+    config.action_view.embed_authenticity_token_in_remote_forms = true
   end
 end
