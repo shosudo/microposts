@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   def show
     user_find
     check_login
+    @microposts = @user.microposts.order(created_at: :desc)
+    #ユーザーに紐付いたmicropostを作成日時が新しいモノから取得
   end
  
   def new
@@ -32,7 +34,8 @@ class UsersController < ApplicationController
     user_find
     check_login
     if @user.update_attributes(user_params)
-      redirect_to @user, notice: '変更を保存しました'
+      flash[:success] = "変更を保存しました"
+      redirect_to @user
     else
       flash.now[:danger] = "保存に失敗しました"
       render 'edit'

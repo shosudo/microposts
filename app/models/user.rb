@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
     before_save { self.email = self.email.downcase }
     #emailを小文字に変更。before_saveはコールバックと呼ばれ、データの保存が行われる前にmethodを実行
-        validates :name, presence: true, length: { in: 2..50 }
+        validates :name, presence: true, length: { in: 2..20 }
         VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
         #emailの正規表現パターンを定義
         validates :email, presence: true, length: { in: 2..255 },
@@ -20,4 +20,7 @@ class User < ActiveRecord::Base
 
     validates :address, presence: true, length: { maximum: 100 } , on: :update
     validates :profile, presence: true, length: { maximum: 100 } , on: :update
+    
+    has_many :microposts
+    #投稿に紐付いている。複数の投稿が1ユーザーに紐づく。
 end

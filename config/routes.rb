@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   #resources method はリソースの操作を可能にするURLを生成する
   #url is /users. action is depends on HTTP method.
   #Please use command 'rake routes' if you want to check route list. 
+  resources :microposts
 
 end

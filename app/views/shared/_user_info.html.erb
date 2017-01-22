@@ -1,0 +1,5 @@
+<%= link_to gravatar_for(current_user, size: 50), current_user %>
+<%# current_userはsession_helper, cssでfloat: left; %>
+<h1><%= current_user.name %></h1>
+<span><%= link_to "プロフィール詳細", current_user %></span>
+<span><%= current_user.microposts.count%>件の投稿</span>

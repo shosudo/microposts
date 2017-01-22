@@ -9,10 +9,10 @@
             <%# object=@user %>
         
             <%= f.label :name,"名前" %>
-            <%= f.text_field :name, :placeholder => "2-50文字以内で入力してください", class:'form-control' %>
+            <%= f.text_field :name, :placeholder => "20文字以内で入力してください", class:'form-control' %>
             
             <%= f.label :email,"メールアドレス" %>
-            <%= f.text_field :email, :placeholder => "2-255文字以内で未登録のメールアドレスを入力してください", class:'form-control' %>
+            <%= f.text_field :email, :placeholder => "255文字以内で未登録のメールアドレスを入力してください", class:'form-control' %>
 
             <%= f.label :password, "パスワード" %>
             <%= f.password_field :password, class:'form-control' %>

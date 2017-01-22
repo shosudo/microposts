@@ -4,6 +4,9 @@ class StaticPagesController < ApplicationController
 #Controllerの名前の最後の部分は複数形にする.
 
   def home
+    @micropost = current_user.microposts.build if logged_in?
+    #ログインしている場合は、新しい@micropostインスタンスを作成して、user_idと紐付けている
+    #current_user.microposts.build = Micropost.new(user_id: current_user:id)
   end
   
 end
