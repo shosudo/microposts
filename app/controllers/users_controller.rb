@@ -34,7 +34,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params)
       redirect_to @user, notice: '変更を保存しました'
     else
-      flash.now[:alert] = "保存に失敗しました"
+      flash.now[:danger] = "保存に失敗しました"
       render 'edit'
     end
   end
