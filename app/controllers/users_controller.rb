@@ -1,9 +1,7 @@
 class UsersController < ApplicationController
   def show
     user_find
-    if(current_user != @user)
-      redirect_to root_path
-    end
+    check_login
   end
  
   def new
@@ -27,16 +25,12 @@ class UsersController < ApplicationController
   
   def edit
     user_find
-    if(current_user != @user)
-      redirect_to root_path
-    end
+    check_login
   end
   
   def update
     user_find
-    if(current_user != @user)
-      redirect_to root_path
-    end
+    check_login
     if @user.update_attributes(user_params)
       redirect_to @user, notice: '変更を保存しました'
     else
@@ -52,9 +46,14 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   
+  def check_login
+    if(current_user != @user)
+      redirect_to root_path
+    end
+  end
+  
   def user_params
     params.require(:user).permit(:name,:email,:password,:password_confirmation,:address,:profile)
   end
-    
 
 end
