@@ -4,10 +4,10 @@ class User < ActiveRecord::Base
 
     before_save { self.email = self.email.downcase }
     #emailを小文字に変更。before_saveはコールバックと呼ばれ、データの保存が行われる前にmethodを実行
-        validates :name, presence: true, length: { maximum: 50 }
+        validates :name, presence: true, length: { in: 2..50 }
         VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
         #emailの正規表現パターンを定義
-        validates :email, presence: true, length: { maximum: 255 },
+        validates :email, presence: true, length: { in: 2..255 },
                         format: { with: VALID_EMAIL_REGEX },
                         uniqueness: { case_sensitive: false }
         #指定した正規表現パターンに一致するかvalidate
@@ -18,4 +18,6 @@ class User < ActiveRecord::Base
     #2.passwordとpassword_confirmationをモデルに追加し、パスワードの確認が一致するか検証する
     #3.パスワードが正しい時に、ユーザーを返すauthenticate methodを提供する
 
+    validates :address, presence: true, length: { maximum: 100 } , on: :update
+    validates :profile, presence: true, length: { maximum: 100 } , on: :update
 end

@@ -10,10 +10,10 @@ class SessionsController < ApplicationController
     #見つかった場合、passwordがただしいかauthenticate methodで調べる
       session[:user_id]=@user.id
       #パスワードが正しい場合、sessionの[:user_id]にユーザーのIDを入れ、user_pathへリダイレクト
-      flash[:info] = "logged in as #{@user.name}"
+      flash.now[:info] = "#{@user.name}でログインしました"
       redirect_to @user
     else
-      flash[:danger] = 'invalid email/password combination'
+      flash.now[:danger] = 'メールアドレスorパスワードが間違っています'
       render 'new'
     end
   end

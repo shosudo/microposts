@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   def show
     user_find
+    if(current_user != @user)
+      redirect_to root_path
+    end
   end
  
   def new
@@ -12,8 +15,9 @@ class UsersController < ApplicationController
   #postで送信されたparamsを元に@userデータを作成
     @user = User.new(user_params)
       if @user.save
-        flash[:success] = "Welcome to the Sample application!"
+        flash.now[:success] = "Welcome to the Sample application!"
         #Key is :success and value is Welcome to--
+        session[:user_id] = @user.id
         redirect_to @user
         #redirect_to user_path(@user)
       else
@@ -34,9 +38,9 @@ class UsersController < ApplicationController
       redirect_to root_path
     end
     if @user.update_attributes(user_params)
-      redirect_to @user, notice: 'Save succeed'
+      redirect_to @user, notice: '変更を保存しました'
     else
-      flash.now[:alert] = "update failed"
+      flash.now[:alert] = "保存に失敗しました"
       render 'edit'
     end
   end
@@ -49,7 +53,7 @@ class UsersController < ApplicationController
   end
   
   def user_params
-    params.require(:user).permit(:name,:email,:password,:password_confirmation,:address)
+    params.require(:user).permit(:name,:email,:password,:password_confirmation,:address,:profile)
   end
     
 

@@ -7,13 +7,16 @@
             <%# object=@user %>
         
             <%= f.label :name,"名前" %>
-            <%= f.text_field :name, :placeholder => "Sho Sudo", class:'form-control' %>
+            <%= f.text_field :name, :placeholder => "2-50文字以内で入力してください", class:'form-control' %>
             
             <%= f.label :email,"メールアドレス" %>
-            <%= f.text_field :email, class:'form-control' %>
+            <%= f.text_field :email, :placeholder => "2-255文字以内で入力してください", class:'form-control' %>
+            
+            <%= f.label :profile,"プロフィール" %>
+            <%= f.text_field :profile, :placeholder => "100文字以内で入力してください", class:'form-control' %>
             
             <%= f.label :address,"住所" %>
-            <%= f.text_field :address, class:'form-control' %>
+            <%= f.text_field :address, :placeholder => "100文字以内で入力してください", class:'form-control' %>
 
             <%= f.submit "更新する", class:"btn btn-large btn-primary" %>
             <%# <input type="submit" name="Create my account" value="Create User" /> %>

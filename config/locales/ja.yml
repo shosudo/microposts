@@ -14,6 +14,8 @@ ja:
         age: "年齢"
         email: "メールアドレス"
         password: "パスワード"
+        address: "住所"
+        profile: "プロフィール"
         
   date:
     abbr_day_names:

@@ -18,13 +18,18 @@
               <td><%=@user.email%></td>
             </tr>
             <tr>
+              <th>プロフィール</th>
+              <td><%=@user.profile%></td>
+            </tr>
+            <tr>
               <th>住所</th>
                 <td><%=@user.address%></td>
             </tr>
           </tbody>
         </table>
       </div>
-      <%= link_to "登録情報を編集する", edit_user_path(current_user) %>
-      <%# is edit_user_path collect? %>
+      <%= link_to "登録情報を編集する", edit_user_path(current_user) if logged_in? %>
+      <%# ログインされていなかったら実行されない %>
+      <%# current_user.idでも良い %>
     </div>
 </div>
