@@ -10,7 +10,12 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
   
-  resources :users
+  resources :users do
+    member do
+      get :followings
+      get :followers
+    end
+  end
   #resources method はリソースの操作を可能にするURLを生成する
   #url is /users. action is depends on HTTP method.
   #Please use command 'rake routes' if you want to check route list. 

@@ -52,6 +52,12 @@ p {
   line-height: 1.7em;
 }
 
+.style-one {
+border: 0;
+border-bottom: 1px dashed #ccc;
+border-color: black;
+}
+
 /* header */
 
 #logo {
@@ -213,4 +219,8 @@ aside {
     height: 100px;
     margin-bottom: 5px;
   }
+}
+
+.micropost_form{
+  margin-top: 0px;
 }
