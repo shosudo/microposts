@@ -14,7 +14,7 @@
     </section>
   </aside>
   <div class="col-md-8">
-    <h1>フォロワー</h1>
+    <h1>フォロー</h1>
     <% @following.each_with_index do |user,i| %>
       <hr class="style-one">
       <%= link_to gravatar_for(user, size: 20), user_path(user) %>
