@@ -22,6 +22,7 @@
           <ol class="microposts">
           <%= render @microposts %>
           <%# = render partial: 'microposts/micropost', collection: @microposts %>
+          <%= paginate @microposts %>
         </ol>
       <% end %>
   </div>

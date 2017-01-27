@@ -52,5 +52,10 @@ group :development do
   gem 'rails-i18n'
   
   gem 'pry-byebug', group: :development
+  
+  gem 'kaminari'
+  
+  gem 'kaminari-bootstrap', '~> 3.0.1'
+
 end
 
