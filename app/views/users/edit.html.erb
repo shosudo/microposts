@@ -17,6 +17,10 @@
             
             <%= f.label :address,"住所" %>
             <%= f.text_field :address, :placeholder => "100文字以内で入力してください", class:'form-control' %>
+            
+            <%= f.label :usericon,"プロフィール画像" %>
+            <%= f.file_field :usericon %>
+            <%= f.hidden_field :usericon_cache %>
 
             <%= f.submit "更新する", class:"btn btn-large btn-primary" %>
             <%# <input type="submit" name="Create my account" value="Create User" /> %>

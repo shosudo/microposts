@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Microposts
   class Application < Rails::Application
+    config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -33,5 +34,6 @@ module Microposts
     
     #ajaxを利用する際に、データを安全にやり取りするためにトークンを付与
     config.action_view.embed_authenticity_token_in_remote_forms = true
+    
   end
 end
