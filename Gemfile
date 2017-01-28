@@ -57,5 +57,7 @@ group :development do
   
   gem 'kaminari-bootstrap', '~> 3.0.1'
 
+  gem 'carrierwave'
+
 end
 
