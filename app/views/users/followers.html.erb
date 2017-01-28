@@ -2,7 +2,13 @@
   <aside class="col-md-4">
     <section class="user_info">
       <h1>
-        <%= gravatar_for @user %>
+        <% if @user.usericon? %>
+            <div class="usericon">
+            <%= image_tag @user.usericon.url %>
+            </div>
+        <% else %>
+            <%= gravatar_for @user %>
+        <% end %>
         <%= @user.name %>
         <%# ログインされていなかったら実行されない %>
         <%# current_user.idでも良い %>
@@ -17,7 +23,11 @@
     <h1>フォロワー</h1>
     <% @follower.each_with_index do |user,i| %>
       <hr class="style-one">
-      <%= link_to gravatar_for(user, size: 20), user_path(user) %>
+      <% if user.usericon? %>
+        <%= link_to image_tag(user.usericon.url), user_path(user) %>
+      <% else %>
+        <%= link_to gravatar_for(user, size: 20), user_path(user) %>
+      <% end %>
       ユーザー名: <%= link_to user.name, user_path(user) %>
       <% if i == @follower.length - 1 %>
         <hr class="style-one">

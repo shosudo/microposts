@@ -1,4 +1,10 @@
-<%= link_to gravatar_for(current_user, size: 50), current_user %>
+<% if current_user.usericon? %>
+    <div class="usericon">
+    <%= image_tag current_user.usericon.url %>
+    </div>
+<% else %>
+    <%= link_to gravatar_for(current_user, size: 50), current_user %>
+<% end %>
 <%# current_userはsession_helper, cssでfloat: left; %>
 <h1><%= current_user.name %></h1>
 <span><%= link_to "プロフィール詳細", current_user %></span>

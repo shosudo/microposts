@@ -3,4 +3,6 @@
     <%= render @feed_items %>
     <%= paginate @feed_items %>
   </ol>
+<% else %>
+  <p>初めての投稿をしましょう！</p>
 <% end %>
