@@ -1,5 +1,12 @@
 <li id="micropost-<%= micropost.id %>">
-  <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
+  <%# ユーザーアイコンがある場合は、ユーザーアイコンを表示する %>
+  <% if micropost.user.usericon? %>
+    <div class="usericon">
+    <%= image_tag micropost.user.usericon.thumb.url %>
+    </div>
+  <% else %>
+    <%= gravatar_for(micropost.user,size:50) %>
+  <% end %>
   <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
   <span class="content"><%= micropost.content %></span>
   <span class="timestamp">

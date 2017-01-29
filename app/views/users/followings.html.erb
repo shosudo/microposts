@@ -4,10 +4,10 @@
       <h1>
         <% if @user.usericon? %>
             <div class="usericon">
-            <%= image_tag @user.usericon.url %>
+            <%= image_tag @user.usericon.thumb.url %>
             </div>
         <% else %>
-            <%= gravatar_for @user %>
+            <%= gravatar_for(@user,size:50) %>
         <% end %>
         <%= @user.name %>
         <%# ログインされていなかったら実行されない %>
@@ -24,9 +24,9 @@
     <% @following.each_with_index do |user,i| %>
       <hr class="style-one">
       <% if user.usericon? %>
-        <%= link_to image_tag(user.usericon.url), user_path(user) %>
+        <%= link_to image_tag(user.usericon.thumb.url), user_path(user) %>
       <% else %>
-        <%= link_to gravatar_for(user, size: 20), user_path(user) %>
+        <%= link_to gravatar_for(user, size: 50), user_path(user) %>
       <% end %>
       ユーザー名: <%= link_to user.name, user_path(user) %>
       <% if i == @following.length - 1 %>

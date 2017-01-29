@@ -147,6 +147,13 @@ ja:
       too_short: は%{count}文字以上で入力してください
       wrong_length: は%{count}文字で入力してください
       other_than: は%{count}以外の値にしてください
+      extension_whitelist_error: "アップロード可能なファイルの種類は: %{allowed_types} です。"
+      extension_blacklist_error: "%{extension}はアップロードできません。"
+      content_type_whitelist_error: "%{content_type}はアップロードできません。"
+      content_type_blacklist_error: "%{content_type}はアップロードできません。"
+      rmagick_processing_error: "画像ファイルをアップロードしてください。"
+      min_size_error: "アップロード可能なファイルサイズは%{min_size}以上です。"
+      max_size_error: "アップロード可能なファイルサイズは%{max_size}以下です。"
     template:
       body: 次の項目を確認してください
       header:

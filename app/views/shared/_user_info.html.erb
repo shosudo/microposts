@@ -1,6 +1,6 @@
 <% if current_user.usericon? %>
     <div class="usericon">
-    <%= image_tag current_user.usericon.url %>
+    <%= image_tag current_user.usericon.thumb.url %>
     </div>
 <% else %>
     <%= link_to gravatar_for(current_user, size: 50), current_user %>

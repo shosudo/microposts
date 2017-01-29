@@ -2,11 +2,18 @@ class UsericonUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
+  
+  process :resize_to_fit => [200, 200]
+  #uploadしたファイルを200x200以下に変換する
+  
+  version :thumb do
+    process :resize_to_fit => [50, 50]
+  end
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:

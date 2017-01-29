@@ -54,5 +54,5 @@ class User < ActiveRecord::Base
     end
         
     mount_uploader :usericon, UsericonUploader
-    
+  
 end
