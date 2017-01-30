@@ -43,12 +43,12 @@ class UsersController < ApplicationController
   
   def followings
     @user = User.find(params[:id])
-    @following = @user.following_users.order(created_at: :desc)
+    @following = @user.following_users.order(created_at: :desc).page(params[:page]).per(10)
   end
   
   def followers
     @user = User.find(params[:id])
-    @follower = @user.follower_users.order(created_at: :desc)
+    @follower = @user.follower_users.order(created_at: :desc).page(params[:page]).per(10)
   end
   
   private
