@@ -1,8 +1,8 @@
 CarrierWave.configure do |config|
   config.fog_credentials = {
     provider: 'AWS',
-    aws_access_key_id: 'AKIAIQEUNOXCZLCVHTWQ',
-    aws_secret_access_key: '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',
+    aws_access_key_id: '',
+    aws_secret_access_key: '',
     region: 'ap-northeast-1'
   }
 
