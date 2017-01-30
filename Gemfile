@@ -41,27 +41,26 @@ group :development, :test do
   gem 'byebug'
 end
 
-group :development do
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+# Access an IRB console on exception pages or by using <%= console %> in views
+gem 'web-console', '~> 2.0'
 
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  
-  # Change messages to japanese
-  gem 'rails-i18n'
-  
-  gem 'pry-byebug', group: :development
-  
-  gem 'kaminari'
-  
-  gem 'kaminari-bootstrap', '~> 3.0.1'
+# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+gem 'spring'
 
-  gem 'carrierwave'
-  
-  gem "mini_magick"
-  
-  gem "fog"
+# Change messages to japanese
+gem 'rails-i18n'
 
-end
+gem 'pry-byebug', group: :development
+
+gem 'kaminari'
+
+gem 'kaminari-bootstrap', '~> 3.0.1'
+
+gem 'carrierwave'
+
+gem "mini_magick"
+
+gem "fog"
+
+
 

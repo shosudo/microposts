@@ -19,4 +19,7 @@ CarrierWave.configure do |config|
       config.fog_directory = 'test.dummy-academy'
       config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/test.dummy-academy'
   end
+  
+  config.cache_storage = :fog #キャッシュの場所をS3に変更
+  config.cache_dir = "#{Rails.root}/tmp/uploads" #for Heroku
 end
